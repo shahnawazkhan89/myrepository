@@ -1,0 +1,19 @@
+name: CI/CD for Master Branch
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Add steps for building and testing your code here
+
+      - name: Deploy to Production
+        if: github.ref == 'refs/heads/master'
+        run: |
+          # Add commands to deploy your code to production
