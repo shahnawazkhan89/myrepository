@@ -1,0 +1,19 @@
+name: CI/CD for Development Branch
+on:
+  push:
+    branches:
+      - development
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Add steps for building and testing your code here
+
+      - name: Deploy to Staging
+        if: github.ref == 'refs/heads/development'
+        run: |
+          # Add commands to deploy your code to a staging environment
